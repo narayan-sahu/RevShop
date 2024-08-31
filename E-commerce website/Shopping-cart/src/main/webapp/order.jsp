@@ -1,0 +1,162 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.math.BigDecimal" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="com.shoppingcart.usermodel.Order" %>
+<%@ page import="com.shoppingcart.dao.OrderDAO" %>
+<%@ include file="includes/navbar.jsp" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f3f3; /* Light grey background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .order-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .order-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .order-table th, .order-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .order-table th {
+            background-color: #232F3E; /* Amazon's dark blue */
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .order-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .no-orders-message {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 50px 0;
+            color: #555;
+        }
+
+        .text-danger {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .order-status {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container order-container">
+        <h2>Your Orders</h2>
+        <%
+            String userEmail = (String) session.getAttribute("email");
+            if (userEmail == null || userEmail.isEmpty()) {
+                response.sendRedirect("login_buyer.jsp");
+                return;
+            }
+
+            List<Order> orders = null;
+
+            try {
+                OrderDAO orderDAO = new OrderDAO();
+                orders = orderDAO.getOrdersByUser(userEmail);
+
+                // Update order status based on payment success or failure
+                if (orders != null) {
+                    for (Order order : orders) {
+                        String paymentStatus = order.getPaymentStatus();
+                        if (paymentStatus != null && paymentStatus.equals("SUCCESS")) {
+                            order.setOrderStatus("Order Placed");
+                        } else {
+                            order.setOrderStatus("Payment Failed");
+                        }
+                        orderDAO.updateOrderStatus(order); // Assuming this method exists in OrderDAO
+                    }
+                }
+
+                if (orders != null && !orders.isEmpty()) {
+        %>
+        <table class="order-table table table-hover">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Order Date</th>
+                    <th>Shipping Address</th>
+                    <th>Payment Method</th>
+                    <th>Order Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%
+                    for (Order order : orders) {
+                %>
+                <tr>
+                    <td><%= order.getProductName() %></td>
+                    <td><%= order.getQuantity() %></td>
+                    <td>Rs.<%= order.getPrice().multiply(new BigDecimal(order.getQuantity())) %></td>
+                    <td><%= new java.text.SimpleDateFormat("dd-MM-yyyy").format(order.getOrderDate()) %></td>
+                    <td><%= order.getAddress() %>, <%= order.getCity() %>, <%= order.getState() %>, <%= order.getZipCode() %></td>
+                    <td><%= order.getPaymentMethod() %></td>
+                    <td class="order-status"><%= order.getOrderStatus() %></td>
+                </tr>
+                <%
+                    }
+                %>
+            </tbody>
+        </table>
+        <%
+            } else {
+        %>
+        <p class="no-orders-message">No orders found.</p>
+        <%
+            }
+        %>
+        <%
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace(); // Log the exception using a logging framework
+                out.println("<p class='text-danger'>An error occurred while fetching orders. Please try again later.</p>");
+            }
+        %>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
