@@ -6,8 +6,6 @@
 
 ## Features
 
-## Features
-
 ### Buyer User Account:
 
 As a buyer, you will be able to:
