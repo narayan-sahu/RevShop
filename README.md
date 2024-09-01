@@ -6,13 +6,38 @@
 
 ## Features
 
-- **User Authentication**: Registration, login, and profile management.
-- **Product Management**: Add, update, delete, and browse products.
-- **Shopping Cart**: Add products to the cart, update quantities, and remove items.
-- **Order Management**: Place orders, view order history, and track order status.
-- **Admin Panel**: Manage users, products, and orders from an admin interface.
-- **Search Functionality**: Search for products by name, category, or description.
-- **Responsive Design**: Optimized for both desktop and mobile devices.
+## Features
+
+### Buyer User Account:
+
+As a buyer, you will be able to:
+
+1. **Register on the platform**: Create a new account with your email and password.
+2. **Login into the application**: Access your account using your email and password.
+3. **View product details**: See images, prices, descriptions, and user reviews for each product.
+4. **Browse products**: Search for products by category or keywords.
+5. **Manage Cart**: Add or remove products from the cart and specify the desired quantity.
+6. **Checkout**: Enter shipping and billing information to complete your purchase.
+7. **Order Notifications**: Receive email notifications when an order is placed.
+8. **Order History**: View a record of all your past orders.
+9. **Product Reviews**: Leave reviews for products you’ve purchased.
+10. **Save Favorites**: Save products as favorites for easy access later.
+11. **Make Payments**: Use the integrated payment gateway to complete your transactions.
+
+### Seller Account:
+
+As a seller, you will be able to:
+
+1. **Register as a seller**: Sign up with your email, password, and business details.
+2. **Login into the application**: Access your seller account using your email and password.
+3. **Manage Inventory**: Keep track of your product inventory and update it as needed.
+4. **Add New Products**: List new products by providing the price, description, and other details.
+5. **Order Management**: View orders placed by buyers and manage them.
+6. **Order Notifications**: Receive email notifications whenever a user places an order.
+7. **Discount Management**: Set a discounted price along with the maximum retail price (MRP).
+8. **View Product Reviews**: See reviews left by buyers for your products.
+9. **Low Stock Alerts**: Get web notifications when a product’s quantity falls below a set threshold (threshold set by the seller).
+
 
 ## Technologies Used
 
