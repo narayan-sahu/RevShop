@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Online Store</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-top {
+            background-color: #232F3E; /* Amazon's dark blue background */
+            color: #ffffff;
+            padding: 40px 0;
+            border-top: 1px solid #3a4553; /* Adding a border for a clean separation */
+        }
+        .footer-heading {
+            color: #ffffff; /* White text for headings */
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .footer-links {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        .footer-links a {
+            color: #ffffff; /* White link text */
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: #ff9900; /* Amazon's orange color on hover */
+            text-decoration: underline;
+            transform: scale(1.05); /* Slightly enlarge link on hover */
+        }
+        .social-icons {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .social-icons a {
+            color: #ffffff;
+            margin-right: 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #ff9900; /* Amazon's orange color on hover */
+            transform: scale(1.1); /* Slightly enlarge icon on hover */
+        }
+        .footer-bottom {
+            background-color: #131A22; /* Darker background for the footer bottom */
+            color: #999999; /* Light grey text */
+            padding: 20px 0;
+            font-size: 0.8rem;
+            text-align: center;
+            border-top: 1px solid #3a4553;
+            margin-top: auto;
+        }
+        .footer-bottom a {
+            color: #999999; /* Light grey link text */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-bottom a:hover {
+            color: #ffffff; /* White color on hover */
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <h5 class="footer-heading">Get to Know Us</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press Releases</a></li>
+                            <li><a href="#">Your Online Store Science</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h5 class="footer-heading">Make Money with Us</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Sell products on Your Online Store</a></li>
+                            <li><a href="#">Sell on Your Online Store Business</a></li>
+                            <li><a href="#">Become an Affiliate</a></li>
+                            <li><a href="#">Advertise Your Products</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h5 class="footer-heading">Your Online Store Payment Products</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Your Online Store Business Card</a></li>
+                            <li><a href="#">Shop with Points</a></li>
+                            <li><a href="#">Reload Your Balance</a></li>
+                            <li><a href="#">Currency Converter</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <h5 class="footer-heading">Let Us Help You</h5>
+                        <ul class="footer-links">
+                            <li><a href="#">Your Account</a></li>
+                            <li><a href="#">Your Orders</a></li>
+                            <li><a href="#">Shipping Rates & Policies</a></li>
+                            <li><a href="#">Returns & Replacements</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>&copy; 2024 RevShop. All rights reserved.</p>
+                        <p>
+                            <a href="#" class="footer-link mr-2">Conditions of Use</a>
+                            <a href="#" class="footer-link mr-2">Privacy Notice</a>
+                            <a href="#" class="footer-link">Interest-Based Ads</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+</body>
+</html>
